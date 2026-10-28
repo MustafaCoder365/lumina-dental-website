@@ -17,7 +17,7 @@ export type Content = {
   dir: "rtl" | "ltr";
   meta: { title: string; description: string };
   brand: string;
-  nav: { treatments: string; visit: string; doctors: string; faq: string; book: string };
+  nav: { treatments: string; clinic: string; doctors: string; faq: string; book: string };
   switchLabel: string;
   menu: string;
   close: string;
@@ -26,6 +26,8 @@ export type Content = {
     lead: string;
     primary: string;
     secondary: string;
+    photoAlt: string;
+    facts: { value: string; label: string }[];
     hoursTitle: string;
     openNow: string;
     closedNow: string;
@@ -44,10 +46,16 @@ export type Content = {
     title: string;
     steps: { title: string; detail: string }[];
   };
+  clinic: {
+    title: string;
+    lead: string;
+    photos: { key: "treatmentRoom" | "waitingRoom" | "xrayReview"; alt: string; caption: string }[];
+    points: string[];
+  };
   doctors: {
     title: string;
     lead: string;
-    items: { name: string; initials: string; role: string; detail: string }[];
+    items: { name: string; photo: "sara" | "ali" | "noor"; role: string; detail: string; since: string }[];
   };
   faq: {
     title: string;
@@ -72,10 +80,15 @@ export type Content = {
     again: string;
   };
   footer: {
+    tagline: string;
+    visitTitle: string;
+    contactTitle: string;
     address: string;
     phone: string;
+    whatsapp: string;
     concept: string;
     credit: string;
+    photos: string;
   };
 };
 
@@ -90,7 +103,7 @@ const ar: Content = {
       "علاج أسنان هادئ وواضح السعر في الكرادة. فحص وتنظيف، زراعة، تقويم شفاف، وطب أسنان الأطفال. احجز موعدك بسهولة.",
   },
   brand: "لومينا",
-  nav: { treatments: "العلاجات", visit: "زيارتك", doctors: "الأطباء", faq: "أسئلة شائعة", book: "احجز موعد" },
+  nav: { treatments: "العلاجات", clinic: "العيادة", doctors: "الأطباء", faq: "أسئلة شائعة", book: "احجز موعد" },
   switchLabel: "English",
   menu: "القائمة",
   close: "إغلاق",
@@ -99,6 +112,12 @@ const ar: Content = {
     lead: "عيادة لومينا في الكرادة تشرح لك خطة العلاج وكلفتها كاملة قبل أي إجراء. بدون مفاجآت، وبدون استعجال.",
     primary: "احجز موعد",
     secondary: "اتصل بنا",
+    photoAlt: "طبيب أسنان يفحص مريضة على كرسي العلاج",
+    facts: [
+      { value: "سعر مكتوب", label: "قبل أي علاج" },
+      { value: "٣ اختصاصات", label: "تحت سقف واحد" },
+      { value: "مواعيد طارئة", label: "في نفس اليوم" },
+    ],
     hoursTitle: "أوقات الدوام",
     openNow: "مفتوح الآن",
     closedNow: "مغلق الآن",
@@ -133,13 +152,23 @@ const ar: Content = {
       { title: "العلاج والمتابعة", detail: "نبدأ عندما تكون جاهزاً، ونتابع معك بعد كل جلسة." },
     ],
   },
+  clinic: {
+    title: "داخل العيادة",
+    lead: "مساحة هادئة ونظيفة، صُمّمت حتى تشعر بالراحة من لحظة دخولك.",
+    photos: [
+      { key: "treatmentRoom", alt: "غرفة علاج حديثة مع كرسي أسنان وإضاءة طبيعية", caption: "غرف علاج مجهّزة بأشعة رقمية عند كل كرسي" },
+      { key: "waitingRoom", alt: "صالة انتظار بكراسي مريحة ونبتة زيتون", caption: "صالة انتظار هادئة، وانتظار قصير" },
+      { key: "xrayReview", alt: "طبيب يراجع صور الأشعة على لوحة إضاءة", caption: "كل خطة تبدأ بأشعتك، مشروحة أمامك" },
+    ],
+    points: ["أدوات معقّمة ومغلّفة لكل مريض", "أشعة رقمية بإشعاع أقل", "طابق أرضي يسهل الوصول إليه"],
+  },
   doctors: {
     title: "الأطباء",
     lead: "ثلاثة اختصاصات تحت سقف واحد، فلا تحتاج للتنقل بين العيادات.",
     items: [
-      { name: "د. سارة الهاشمي", initials: "س", role: "تقويم الأسنان", detail: "تقويم شفاف وتقليدي للكبار والمراهقين." },
-      { name: "د. علي كاظم", initials: "ع", role: "زراعة وجراحة الفم", detail: "زراعة الأسنان، القلع الجراحي، وترميم الفك." },
-      { name: "د. نور جابر", initials: "ن", role: "طب أسنان الأطفال", detail: "زيارات هادئة تبني ثقة الطفل بطبيب الأسنان." },
+      { name: "د. سارة الهاشمي", photo: "sara", role: "تقويم الأسنان", detail: "تقويم شفاف وتقليدي للكبار والمراهقين.", since: "١٢ سنة خبرة" },
+      { name: "د. علي كاظم", photo: "ali", role: "زراعة وجراحة الفم", detail: "زراعة الأسنان، القلع الجراحي، وترميم الفك.", since: "١٥ سنة خبرة" },
+      { name: "د. نور جابر", photo: "noor", role: "طب أسنان الأطفال", detail: "زيارات هادئة تبني ثقة الطفل بطبيب الأسنان.", since: "٩ سنوات خبرة" },
     ],
   },
   faq: {
@@ -175,10 +204,15 @@ const ar: Content = {
     again: "حجز موعد آخر",
   },
   footer: {
+    tagline: "طب أسنان هادئ وواضح السعر في قلب الكرادة.",
+    visitTitle: "زُرنا",
+    contactTitle: "تواصل معنا",
     address: "شارع ٦٢، الكرادة، بغداد",
     phone: PHONE_DISPLAY,
+    whatsapp: "واتساب",
     concept: "لومينا عيادة خيالية. هذا الموقع مشروع تصميم وتطوير تجريبي.",
     credit: "تصميم وتطوير مصطفى شاكر",
+    photos: "الصور من Unsplash",
   },
 };
 
@@ -190,7 +224,7 @@ const en: Content = {
       "Calm dental care with prices you know upfront. Checkups, implants, clear aligners, and children's dentistry in Karrada, Baghdad.",
   },
   brand: "Lumina",
-  nav: { treatments: "Treatments", visit: "Your visit", doctors: "Doctors", faq: "FAQ", book: "Book a visit" },
+  nav: { treatments: "Treatments", clinic: "The clinic", doctors: "Doctors", faq: "FAQ", book: "Book a visit" },
   switchLabel: "العربية",
   menu: "Menu",
   close: "Close",
@@ -199,6 +233,12 @@ const en: Content = {
     lead: "Lumina in Karrada walks you through your treatment plan and its full cost before any procedure. No surprises, no rush.",
     primary: "Book a visit",
     secondary: "Call us",
+    photoAlt: "A dentist examining a patient in the treatment chair",
+    facts: [
+      { value: "Written price", label: "before any treatment" },
+      { value: "3 specialties", label: "under one roof" },
+      { value: "Emergency slots", label: "the same day" },
+    ],
     hoursTitle: "Opening hours",
     openNow: "Open now",
     closedNow: "Closed now",
@@ -233,13 +273,23 @@ const en: Content = {
       { title: "Treatment and follow-up", detail: "We start when you're ready, and check in after every session." },
     ],
   },
+  clinic: {
+    title: "Inside the clinic",
+    lead: "A quiet, spotless space, designed so you feel at ease from the moment you walk in.",
+    photos: [
+      { key: "treatmentRoom", alt: "A modern treatment room with a dental chair and natural light", caption: "Treatment rooms with digital X-ray at every chair" },
+      { key: "waitingRoom", alt: "A calm waiting room with chairs and an olive tree", caption: "A quiet waiting room, and short waits" },
+      { key: "xrayReview", alt: "A dentist reviewing X-ray images on a light box", caption: "Every plan starts with your X-rays, explained to you" },
+    ],
+    points: ["Sterilized, sealed instruments for every patient", "Digital X-rays with lower radiation", "Step-free, ground-floor access"],
+  },
   doctors: {
     title: "Doctors",
     lead: "Three specialties under one roof, so you don't have to move between clinics.",
     items: [
-      { name: "Dr. Sara Al-Hashimi", initials: "S", role: "Orthodontics", detail: "Clear and traditional braces for adults and teens." },
-      { name: "Dr. Ali Kadhim", initials: "A", role: "Implants and oral surgery", detail: "Implants, surgical extractions, and jaw restoration." },
-      { name: "Dr. Noor Jaber", initials: "N", role: "Children's dentistry", detail: "Calm visits that build a child's trust in the dentist." },
+      { name: "Dr. Sara Al-Hashimi", photo: "sara", role: "Orthodontics", detail: "Clear and traditional braces for adults and teens.", since: "12 years in practice" },
+      { name: "Dr. Ali Kadhim", photo: "ali", role: "Implants and oral surgery", detail: "Implants, surgical extractions, and jaw restoration.", since: "15 years in practice" },
+      { name: "Dr. Noor Jaber", photo: "noor", role: "Children's dentistry", detail: "Calm visits that build a child's trust in the dentist.", since: "9 years in practice" },
     ],
   },
   faq: {
@@ -275,10 +325,15 @@ const en: Content = {
     again: "Book another visit",
   },
   footer: {
+    tagline: "Calm, clearly priced dentistry in the heart of Karrada.",
+    visitTitle: "Visit",
+    contactTitle: "Contact",
     address: "62nd Street, Karrada, Baghdad",
     phone: PHONE_DISPLAY,
+    whatsapp: "WhatsApp",
     concept: "Lumina is a fictional clinic. This site is a design and development concept.",
     credit: "Designed and built by Mustafa Shakir",
+    photos: "Photos from Unsplash",
   },
 };
 

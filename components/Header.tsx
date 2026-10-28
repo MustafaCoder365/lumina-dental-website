@@ -19,7 +19,7 @@ export function Header({ t, lang }: { t: Content; lang: Locale }) {
 
   const links = [
     { href: "#treatments", label: t.nav.treatments },
-    { href: "#visit", label: t.nav.visit },
+    { href: "#clinic", label: t.nav.clinic },
     { href: "#doctors", label: t.nav.doctors },
     { href: "#faq", label: t.nav.faq },
   ];

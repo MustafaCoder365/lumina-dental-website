@@ -30,7 +30,7 @@ export function HoursCard({ t }: { t: Content["hero"] }) {
   }, []);
 
   return (
-    <div className="card-in w-full">
+    <div className="card-in w-full rounded-2xl border border-enamel bg-white p-5 shadow-[0_18px_40px_-18px_rgba(19,41,106,0.35)] sm:p-6">
       <div className="mb-4 flex items-center justify-between gap-3">
         <h2 className="text-sm font-medium text-ink-soft">{t.hoursTitle}</h2>
         {open !== null && (
@@ -48,15 +48,15 @@ export function HoursCard({ t }: { t: Content["hero"] }) {
           </span>
         )}
       </div>
-      <dl className="space-y-3">
+      <dl className="space-y-2">
         {t.hours.map((row) => (
-          <div key={row.days} className="flex flex-col">
+          <div key={row.days} className="flex items-baseline justify-between gap-4">
             <dt className="text-sm text-ink-soft">{row.days}</dt>
-            <dd className="text-lg font-semibold text-ink">{row.time}</dd>
+            <dd className="font-semibold text-ink">{row.time}</dd>
           </div>
         ))}
       </dl>
-      <p className="mt-5 flex items-start gap-2 border-t border-enamel pt-4 text-sm text-ink-soft">
+      <p className="mt-4 flex items-start gap-2 border-t border-enamel pt-4 text-sm text-ink-soft">
         <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-cobalt" aria-hidden="true" />
         {t.address}
       </p>
