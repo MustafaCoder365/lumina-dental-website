@@ -98,7 +98,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
               {t.treatments.items.map((item) => (
                 <li
                   key={item.id}
-                  className="grid gap-x-10 gap-y-1 py-6 md:grid-cols-[15rem_1fr_auto] md:items-baseline"
+                  className="grid gap-x-10 gap-y-1 py-6 md:grid-cols-[15rem_1fr_12.5rem] md:items-baseline"
                 >
                   <h3 className="text-lg font-semibold text-ink">{item.name}</h3>
                   <p className="text-ink-soft">
@@ -108,7 +108,7 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                       {item.duration}
                     </span>
                   </p>
-                  <p className="mt-2 text-ink md:mt-0 md:min-w-[11rem] md:text-end">
+                  <p className="mt-2 text-ink md:mt-0 md:text-end">
                     <span className="text-sm text-ink-soft">{t.treatments.from} </span>
                     <span className="text-xl font-semibold tabular-nums">{formatPrice(item.priceFrom, lang)}</span>
                     <span className="text-sm text-ink-soft"> {t.treatments.currency}</span>
