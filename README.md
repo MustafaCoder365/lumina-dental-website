@@ -13,7 +13,7 @@
 
 <br>
 
-![Lumina Dental — English](screenshots/hero-en.png)
+![Lumina Dental — English](screenshots/hero-en.jpg)
 
 </div>
 
@@ -25,6 +25,7 @@
 
 - 🌍 **Full Arabic and English** — separate routes (`/ar`, `/en`), right-to-left layout for Arabic, and automatic language pick on first visit
 - 🕌 **Distinctive identity** — palette and hero pattern drawn from Baghdad's glazed *kashi* tilework, instead of the usual clinic template
+- 📷 **Real photography** — the hero photo framed inside a tiled arch, a clinic gallery, and doctor portraits, served responsively with `srcset`
 - 🟢 **Live "open now" status** — calculated in Baghdad time from the clinic's opening hours
 - 💰 **Transparent pricing** — treatments listed with starting prices in Iraqi dinar
 - 📝 **Booking form** — validation for Iraqi mobile numbers, accessible error messages, and a clear confirmation state
@@ -34,21 +35,25 @@
 
 ## 📸 Screenshots
 
-| Arabic (RTL) | Mobile |
-|---|---|
-| ![Arabic hero](screenshots/hero-ar.png) | <img src="screenshots/mobile-ar.png" alt="Mobile, Arabic" width="260"> |
+| Arabic (RTL) |
+|---|
+| ![Arabic hero](screenshots/hero-ar.jpg) |
 
 | Treatments and prices |
 |---|
-| ![Treatments](screenshots/treatments.png) |
+| ![Treatments](screenshots/treatments.jpg) |
+
+| Inside the clinic |
+|---|
+| ![Clinic gallery](screenshots/clinic.jpg) |
+
+| Doctors |
+|---|
+| ![Doctors](screenshots/doctors.jpg) |
 
 | Visit process |
 |---|
 | ![Visit process](screenshots/visit.png) |
-
-| Booking form |
-|---|
-| ![Booking](screenshots/book.png) |
 
 ## 🧭 Page sections
 
@@ -56,8 +61,9 @@
 |---|---|
 | **Hero** | Clear promise, booking and call buttons, live opening hours |
 | **Treatments** | Seven treatments with short descriptions, durations, and starting prices |
+| **Inside the clinic** | Photo gallery with captions and the clinic's standards |
 | **Your visit** | The four steps from booking to follow-up |
-| **Doctors** | Three specialists and what each one treats |
+| **Doctors** | Three specialists with portraits, specialty, and experience |
 | **FAQ** | Answers to the questions patients ask most |
 | **Booking** | Validated request form with a confirmation state |
 
@@ -80,6 +86,7 @@ app/
 └── [lang]/        # Arabic and English pages (layout sets lang + dir)
 components/        # Header, tile arch, hours card, booking form, logo
 lib/content.ts     # All copy, in Arabic and English
+lib/photos.ts      # Photo IDs and responsive image helpers
 public/            # Favicon
 ```
 
@@ -101,6 +108,12 @@ npm run build   # static site in ./out
 ```
 
 Pushing to `main` deploys automatically through `.github/workflows/deploy.yml`.
+
+## 📷 Photo credits
+
+Photos from [Unsplash](https://unsplash.com), free under the [Unsplash License](https://unsplash.com/license):
+Ozkan Guner, Benyamin Bohlouli, Jonathan Borba, Katarzyna Zygnerska, Kari Bjorn Photography, Vitaly Gariev, and Beatriz Mendez.
+The people pictured are not affiliated with this fictional clinic.
 
 ## 👤 Author
 
