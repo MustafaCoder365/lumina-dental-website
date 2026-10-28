@@ -1,0 +1,97 @@
+@import "tailwindcss";
+@import "@fontsource-variable/readex-pro/index.css";
+
+/* Palette taken from Baghdad's glazed kashi tilework. */
+@theme {
+  --color-porcelain: #f6f8fb;
+  --color-enamel: #d9e1ec;
+  --color-cobalt: #1a3a8c;
+  --color-cobalt-deep: #13296a;
+  --color-ink: #0d1830;
+  --color-ink-soft: #46526b;
+  --color-glaze: #24a8a6;
+  --color-glaze-soft: #dff3f2;
+
+  --font-sans: "Readex Pro Variable", system-ui, sans-serif;
+
+  --radius-arch: 999px 999px 0 0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+  }
+
+  body {
+    background: var(--color-porcelain);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "kern";
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Arabic needs more line-height than Latin at the same size. */
+  html[lang="ar"] body {
+    line-height: 1.75;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-glaze);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* The one orchestrated moment: the tile arch rises on page load. */
+@keyframes arch-rise {
+  from {
+    clip-path: inset(100% 0 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.arch-rise {
+  animation: arch-rise 1.1s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.card-in {
+  animation: card-in 0.6s 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* FAQ disclosure marker, direction-aware. */
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
