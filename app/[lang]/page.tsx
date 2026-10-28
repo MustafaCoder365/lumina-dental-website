@@ -96,18 +96,19 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
             <SectionHeading id="treatments" title={t.treatments.title} lead={t.treatments.lead} />
             <ul className="mt-14 divide-y divide-enamel border-y border-enamel">
               {t.treatments.items.map((item) => (
-                <li key={item.id} className="grid gap-2 py-6 sm:grid-cols-[1fr_auto] sm:items-baseline sm:gap-10">
-                  <div className="grid gap-1 md:grid-cols-[minmax(14rem,0.9fr)_1.1fr] md:gap-8">
-                    <h3 className="text-lg font-semibold text-ink">{item.name}</h3>
-                    <p className="text-ink-soft">
-                      {item.detail}
-                      <span className="ms-2 inline-flex items-center gap-1 text-sm text-ink-soft/80">
-                        <Clock className="h-3.5 w-3.5" aria-hidden="true" />
-                        {item.duration}
-                      </span>
-                    </p>
-                  </div>
-                  <p className="text-ink sm:text-end">
+                <li
+                  key={item.id}
+                  className="grid gap-x-10 gap-y-1 py-6 md:grid-cols-[15rem_1fr_auto] md:items-baseline"
+                >
+                  <h3 className="text-lg font-semibold text-ink">{item.name}</h3>
+                  <p className="text-ink-soft">
+                    {item.detail}
+                    <span className="ms-2 inline-flex items-center gap-1 whitespace-nowrap text-sm text-ink-soft/80">
+                      <Clock className="h-3.5 w-3.5" aria-hidden="true" />
+                      {item.duration}
+                    </span>
+                  </p>
+                  <p className="mt-2 text-ink md:mt-0 md:min-w-[11rem] md:text-end">
                     <span className="text-sm text-ink-soft">{t.treatments.from} </span>
                     <span className="text-xl font-semibold tabular-nums">{formatPrice(item.priceFrom, lang)}</span>
                     <span className="text-sm text-ink-soft"> {t.treatments.currency}</span>
@@ -138,16 +139,16 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
 
             <figure className="md:row-span-2 md:flex md:flex-col">
               <img
-                src={unsplash(photos.waitingRoom, 600, 900)}
-                srcSet={srcSet(photos.waitingRoom, [400, 600, 900], 1.5)}
+                src={unsplash(photos.brightRoom, 600, 900)}
+                srcSet={srcSet(photos.brightRoom, [400, 600, 900], 1.5)}
                 sizes="(min-width: 768px) 33vw, 100vw"
-                alt={clinicPhoto("waitingRoom").alt}
+                alt={clinicPhoto("brightRoom").alt}
                 loading="lazy"
                 decoding="async"
                 className="aspect-[4/5] w-full object-cover md:aspect-auto md:min-h-0 md:flex-1"
                 style={ARCH_TOP}
               />
-              <figcaption className="mt-3 text-sm text-ink-soft">{clinicPhoto("waitingRoom").caption}</figcaption>
+              <figcaption className="mt-3 text-sm text-ink-soft">{clinicPhoto("brightRoom").caption}</figcaption>
             </figure>
 
             <figure>
@@ -255,8 +256,8 @@ export default async function Home({ params }: { params: Promise<{ lang: string 
                 <span dir="ltr">{PHONE_DISPLAY}</span>
               </a>
               <img
-                src={unsplash(photos.chair, 600, 700)}
-                srcSet={srcSet(photos.chair, [400, 600, 800], 1.17)}
+                src={unsplash(photos.quietRoom, 600, 700)}
+                srcSet={srcSet(photos.quietRoom, [400, 600, 800], 1.17)}
                 sizes="30vw"
                 alt=""
                 loading="lazy"

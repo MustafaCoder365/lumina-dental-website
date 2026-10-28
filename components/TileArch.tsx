@@ -65,7 +65,7 @@ export function TileArch({
         />
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 px-2 sm:-start-10 sm:end-auto sm:w-[19rem] sm:px-0">{children}</div>
+      <div className="absolute inset-x-0 bottom-0 px-2 sm:-start-12 sm:end-auto sm:w-[22rem] sm:px-0">{children}</div>
     </div>
   );
 }

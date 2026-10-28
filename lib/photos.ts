@@ -23,9 +23,9 @@ export function srcSet(id: string, widths: number[], ratio?: number) {
 export const photos = {
   hero: "photo-1662837625421-5fd8ed6131a0", // Ozkan Guner
   treatmentRoom: "photo-1629909613654-28e377c37b09", // Benyamin Bohlouli
-  waitingRoom: "photo-1762625570087-6d98fca29531", // Amy Vosters
   xrayReview: "photo-1588776814546-1ffcf47267a5", // Jonathan Borba
-  chair: "photo-1728342057953-94bfad8f0e7e", // Katarzyna Zygnerska
+  brightRoom: "photo-1728342057953-94bfad8f0e7e", // Katarzyna Zygnerska
+  quietRoom: "photo-1704455306251-b4634215d98f", // Kari Bjorn Photography
   doctors: {
     sara: "photo-1758691462651-611d730c5272", // Vitaly Gariev
     ali: "photo-1758691463384-771db2f192b3", // Vitaly Gariev

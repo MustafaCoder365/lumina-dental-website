@@ -49,7 +49,7 @@ export type Content = {
   clinic: {
     title: string;
     lead: string;
-    photos: { key: "treatmentRoom" | "waitingRoom" | "xrayReview"; alt: string; caption: string }[];
+    photos: { key: "treatmentRoom" | "brightRoom" | "xrayReview"; alt: string; caption: string }[];
     points: string[];
   };
   doctors: {
@@ -157,7 +157,7 @@ const ar: Content = {
     lead: "مساحة هادئة ونظيفة، صُمّمت حتى تشعر بالراحة من لحظة دخولك.",
     photos: [
       { key: "treatmentRoom", alt: "غرفة علاج حديثة مع كرسي أسنان وإضاءة طبيعية", caption: "غرف علاج مجهّزة بأشعة رقمية عند كل كرسي" },
-      { key: "waitingRoom", alt: "صالة انتظار بكراسي مريحة ونبتة زيتون", caption: "صالة انتظار هادئة، وانتظار قصير" },
+      { key: "brightRoom", alt: "كرسي علاج أبيض بجانب نافذة واسعة", caption: "غرف مضيئة وهادئة، بعيداً عن الزحام" },
       { key: "xrayReview", alt: "طبيب يراجع صور الأشعة على لوحة إضاءة", caption: "كل خطة تبدأ بأشعتك، مشروحة أمامك" },
     ],
     points: ["أدوات معقّمة ومغلّفة لكل مريض", "أشعة رقمية بإشعاع أقل", "طابق أرضي يسهل الوصول إليه"],
@@ -278,7 +278,7 @@ const en: Content = {
     lead: "A quiet, spotless space, designed so you feel at ease from the moment you walk in.",
     photos: [
       { key: "treatmentRoom", alt: "A modern treatment room with a dental chair and natural light", caption: "Treatment rooms with digital X-ray at every chair" },
-      { key: "waitingRoom", alt: "A calm waiting room with chairs and an olive tree", caption: "A quiet waiting room, and short waits" },
+      { key: "brightRoom", alt: "A white treatment chair beside a large window", caption: "Bright, quiet rooms, away from crowded corridors" },
       { key: "xrayReview", alt: "A dentist reviewing X-ray images on a light box", caption: "Every plan starts with your X-rays, explained to you" },
     ],
     points: ["Sterilized, sealed instruments for every patient", "Digital X-rays with lower radiation", "Step-free, ground-floor access"],
